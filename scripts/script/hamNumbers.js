@@ -4,10 +4,6 @@ var resultsPage = new (require('HamLicenses-FCC/pages/FCC_Results.js'));
 var searchPage = new (require('HamLicenses-FCC/pages/FCC_Search.js'));
 var until = protractor.ExpectedConditions;
 
-var countyList = ["Beaver", "Box Elder", "Cache", "Carbon", "Daggett", "Davis", "Duchesne", "Emery", "Garfield",
-  "Grand", "Iron", "Juab", "Kane", "Millard", "Morgan", "Piute", "Rich", "Salt Lake", "San Juan", "Sanpete", "Sevier",
-  "Summit", "Tooele", "Uintah", "Utah", "Wasatch", "Washington", "Wayne", "Weber"];
-
 describe("### Get a Count of all the Ham Radio Operators in Utah by ZIP ###", function () {
 
   before(function () {
@@ -20,7 +16,6 @@ describe("### Get a Count of all the Ham Radio Operators in Utah by ZIP ###", fu
   //it's possible to pick up orphaned lifesketches in our test environments.
   it ('Go to the FCC', function () {
     searchPage.visitFCC();
-    browser.sleep(50000);
     base.wait(until.visibilityOf(searchPage.getZipCodeTextBox()), null, "The FCC Search Page Didn't Appear");
   });
 
@@ -40,7 +35,7 @@ describe("### Get a Count of all the Ham Radio Operators in Utah by ZIP ###", fu
       file.writeln(findCounty(i) + " : " + resultsPage.getSearchResultsCount().getText());
 
       base.click(resultsPage.getSearchPageNew(), null, "New Search Link");
-      base.wait(until.visibilityOf(searchPage.getZipCodeTestBox()), null, "The FCC Search Page Didn't Appear");
+      base.wait(until.visibilityOf(searchPage.getZipCodeTextBox()), null, "The FCC Search Page Didn't Appear");
     }
 
     file.close();

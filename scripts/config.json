@@ -1,7 +1,7 @@
 {
   "default":{
     "app" : "",
-    "baseHost" : "wireless2.fcc.gov/UlsApp/UlsSearch/searchAmateur.jsp",
+    "baseHost" : "wireless2.fcc.gov/UlsApp/UlsSearch",
     "browsers" : "chrome",
     "displayInfo" : false,
     "environment":"[{\"name\":\"HamLicenses\", \"browserName\":\"chrome\"}]",
